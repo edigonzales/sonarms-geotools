@@ -29,11 +29,12 @@ dependencies {
 
     implementation libs.guava
     implementation "org.geotools:gt-main:${geotoolsVersion}"
-    //implementation "org.geotools:gt-geotiff:${geotoolsVersion}"
+    implementation "org.geotools:gt-geotiff:${geotoolsVersion}"
     implementation "org.geotools:gt-coverage:${geotoolsVersion}"
     implementation "org.geotools:gt-arcgrid:${geotoolsVersion}"
     implementation "org.geotools:gt-shapefile:${geotoolsVersion}"
     implementation "org.geotools:gt-process-raster:${geotoolsVersion}"
+    implementation "org.geotools:gt-epsg-hsql:${geotoolsVersion}"
     //implementation "it.geosolutions.imageio-ext:imageio-ext-cog-reader:${imageioVersion}"
     //implementation "it.geosolutions.imageio-ext:imageio-ext-cog-rangereader-http:${imageioVersion}"
 }
