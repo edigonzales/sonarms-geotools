@@ -2,9 +2,25 @@ plugins {
     id 'application'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
+
 repositories {
+    maven { url "https://maven.geo-solutions.it/" }
+    maven { url "https://repo.osgeo.org/repository/release/" }
     mavenCentral()
 }
+
+ext {
+    geotoolsVersion = '28.5'
+    imageioVersion = '1.4.14'
+}
+
 
 dependencies {
     testImplementation libs.junit.jupiter
@@ -12,15 +28,14 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     implementation libs.guava
-}
-
-sourceCompatibility = '11'
-targetCompatibility = '11'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
+    implementation "org.geotools:gt-main:${geotoolsVersion}"
+    //implementation "org.geotools:gt-geotiff:${geotoolsVersion}"
+    implementation "org.geotools:gt-coverage:${geotoolsVersion}"
+    implementation "org.geotools:gt-arcgrid:${geotoolsVersion}"
+    implementation "org.geotools:gt-shapefile:${geotoolsVersion}"
+    implementation "org.geotools:gt-process-raster:${geotoolsVersion}"
+    //implementation "it.geosolutions.imageio-ext:imageio-ext-cog-reader:${imageioVersion}"
+    //implementation "it.geosolutions.imageio-ext:imageio-ext-cog-rangereader-http:${imageioVersion}"
 }
 
 application {
